@@ -17,13 +17,14 @@ WHERE r.Rating = 5
 ORDER BY p.Name;
  
 /* joins: find the employee with the most total quantity sold.  use the sum() function and group by */
-SELECT e.FirstName, e.LastName, 
+SELECT e.EmployeeID, e.FirstName, e.LastName, 
 SUM(Quantity) AS TotalSales
 FROM bestbuy.sales s
 LEFT JOIN bestbuy.employees e
 ON e.EmployeeID = s.EmployeeID
 WHERE s.Quantity IS NOT NULL
-GROUP BY e.EmployeeID ORDER BY TotalSales DESC;
+GROUP BY e.EmployeeID ORDER BY TotalSales DESC
+LIMIT 2;
 
 
 /* joins: find the name of the department, and the name of the category for Appliances and Games */
